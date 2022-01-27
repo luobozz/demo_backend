@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.shtf.edu.mapper.SysRoleMapper">
+    <select id="selectListByAccountUuId" resultType="com.shtf.edu.bean.entity.SysRole">
+        select b.id,b.uuid,b.name,b.sign,b.manage_sign,b.del_flag,b.created_by,b.created_time,b.updated_by,b.updated_time
+        from sys_account_role a
+        join sys_role b on a.role_uuid=b.uuid
+        where a.acc_uuid=#{accountUuid}
+    </select>
+</mapper>

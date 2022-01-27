@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.shtf.edu.mapper.SysRouteMapper">
+    <select id="selectListByRoleUuId" resultType="com.shtf.edu.bean.entity.SysRoute">
+        select
+        b.id,b.uuid,b.name,b.sign,b.path,b.icon,b.del_flag,b.created_by,b.created_time,b.updated_by,b.updated_time
+        from sys_role_route a
+        join sys_route b on a.route_uuid=b.uuid
+        where a.role_uuid=#{roleUuid}
+    </select>
+</mapper>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.shtf.edu.mapper.SysPermissionMapper">
+    <select id="selectListByRoleUuIdAndRouteUuid" resultType="com.shtf.edu.bean.entity.SysPermission">
+        select c.id,c.uuid,c.title,c.sign,c.content,c.del_flag,c.created_by,c.created_time,c.updated_by,c.updated_time
+        from sys_role_route_permission a
+        join sys_route_permission b on a.rp_uuid=b.uuid
+        join sys_permission c on b.permission_uuid=c.uuid
+        where a.role_uuid=#{roleUuid} and b.route_uuid=#{routeUuid}
+    </select>
+</mapper>
